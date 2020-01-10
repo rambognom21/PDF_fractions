@@ -1,0 +1,12 @@
+## Python
+__pycache__
+.cache
+
+### JetBrains
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/modules.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/*.iml
