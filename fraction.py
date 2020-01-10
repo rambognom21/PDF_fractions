@@ -19,8 +19,10 @@ class Fraction:
     """
 
     def __init__(self, nom, denom):
-        self.nom = nom
-        self.denom = denom
+        self.nom = nom // gcd(nom,denom)
+        self.denom = denom // gcd(nom,denom)
+        self.valError()
+        self.sanit()
 
     def __str__(self):
         return f"{self.nom}/{self.denom}"
@@ -30,3 +32,30 @@ class Fraction:
 
     def __eq__(self, other):
         return self.nom == other.nom and self.denom == other.denom
+
+    def __add__(self, other):
+        return (self.nom * other.denom + other.nom * self.denom)/(other.denom * self.denom)
+
+    def __sub__(self, other):
+        return (self.nom * other.denom - other.nom * self.denom)/(other.denom * self.denom)
+
+    def __mul__(self, other):#multiplication
+        return (self.nom * other.nom)/(self.denom * other.denom)
+
+    def __truediv__(self, other):#a/b; calkowite: a//b
+        return (self.nom * other.denom)/(self.denom * other.nom)
+
+    def decimal(self):
+        return self.nom/self.denom
+
+    def valError(self):
+        if self.denom == 0 or type(self.nom)!=int or type(self.nom)!=int:
+            raise ValueError
+
+    def sanit(self):
+        if self.denom < 0:
+            self.denom*=-1
+            self.nom*=-1
+
+
+#ma sie ulamek skracac greatest common divisor
