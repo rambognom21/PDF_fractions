@@ -34,16 +34,16 @@ class Fraction:
         return self.nom == other.nom and self.denom == other.denom
 
     def __add__(self, other):
-        return (self.nom * other.denom + other.nom * self.denom)/(other.denom * self.denom)
+        return Fraction(self.nom * other.denom + other.nom * self.denom, other.denom * self.denom)
 
     def __sub__(self, other):
-        return (self.nom * other.denom - other.nom * self.denom)/(other.denom * self.denom)
+        return Fraction(self.nom * other.denom - other.nom * self.denom, other.denom * self.denom)
 
     def __mul__(self, other):#multiplication
-        return (self.nom * other.nom)/(self.denom * other.denom)
+        return Fraction(self.nom * other.nom, self.denom * other.denom)
 
     def __truediv__(self, other):#a/b; calkowite: a//b
-        return (self.nom * other.denom)/(self.denom * other.nom)
+        return Fraction(self.nom * other.denom, self.denom * other.nom)
 
     def decimal(self):
         return self.nom/self.denom
